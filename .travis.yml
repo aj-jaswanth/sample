@@ -1,6 +1,5 @@
-language: java
+language: go
 
-jdk:
-  - oraclejdk8
-
-script: ./gradlew build
+go:
+  - '1.10'
+script: go build ./main/app.go
