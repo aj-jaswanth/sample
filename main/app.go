@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/aj-jaswanth/sample/main/database"
+)
 
 func main() {
-	fmt.Println("Hello")
+	database.RunMigrations()
 }
