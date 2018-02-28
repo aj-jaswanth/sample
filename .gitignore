@@ -2,3 +2,5 @@
 *.iml
 vendor/
 /todo
+/cover
+/cover.html
