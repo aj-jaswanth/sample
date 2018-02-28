@@ -2,7 +2,7 @@ package database
 
 import (
 	"fmt"
-	"github.com/aj-jaswanth/sample/main/util"
+	"github.com/aj-jaswanth/sample/src/util"
 	"log"
 )
 
@@ -11,10 +11,10 @@ var migrations = []string{
 		(index integer)`,
 	`create table list 
 		(identifier uuid primary key, 
-		name varchar unique not null)`,
+		name varchar not null)`,
 	`create table task 
 		(identifier uuid primary key,
-		content varchar,
+		action varchar,
 		list_identifier uuid references list(identifier))`,
 }
 
@@ -44,12 +44,10 @@ func RunMigrations() {
 	}
 }
 
-func Erase() {
+func Truncate() {
 	db := AcquireDatabase()
-	_, err := db.Exec("drop table _migrations")
+	_, err := db.Exec("delete from task")
 	util.HandleErr(err)
-	_, err = db.Exec("drop table task")
-	util.HandleErr(err)
-	_, err = db.Exec("drop table list")
+	_, err = db.Exec("delete from list")
 	util.HandleErr(err)
 }

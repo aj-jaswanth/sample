@@ -2,7 +2,7 @@ package database
 
 import (
 	"database/sql"
-	"github.com/aj-jaswanth/sample/main/util"
+	"github.com/aj-jaswanth/sample/src/util"
 	_ "github.com/lib/pq"
 )
 
